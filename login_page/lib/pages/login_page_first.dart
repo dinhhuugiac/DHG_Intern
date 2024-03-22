@@ -190,14 +190,14 @@ class _LoginPageFirstState extends State<LoginPageFirst> {
                   text: TextSpan(
                     children: [
                       TextSpan(
-                        text: ' Bằng việc tiếp tục,  Bạn đồng ý với ',
+                        text: 'Bằng việc tiếp tục,  Bạn đồng ý với ',
                         style: TextStyle(
                           fontSize: 14,
                           color: Colors.grey,
                         ),
                       ),
                       TextSpan(
-                        text: ' quy chế, điều khoản     ',
+                        text: ' quy chế, điều khoản\n',
                         style: TextStyle(
                           fontSize: 14,
                           color: Colors.blue,
