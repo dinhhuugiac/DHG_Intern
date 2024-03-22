@@ -10,7 +10,7 @@ class NewPassWordPage extends StatefulWidget {
 }
 
 class _NewPassWordPageState extends State<NewPassWordPage> {
-  int counter = 0;
+  int counterpassword = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -38,9 +38,11 @@ class _NewPassWordPageState extends State<NewPassWordPage> {
                   onCodeChanged: (String code) {
                     setState(() {
                       if(code.isNotEmpty){
-                        counter++;
+                        counterpassword++;
+
+
                       }else{
-                        counter--;
+                        counterpassword--;
                       }
                     });
                   },
@@ -76,7 +78,9 @@ class _NewPassWordPageState extends State<NewPassWordPage> {
                 children: [
                   Expanded(
                     child: TextButton(
-                      onPressed: counter == 6 ? () {
+                      onPressed: counterpassword == 6 ? () {
+
+
                        Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -84,7 +88,7 @@ class _NewPassWordPageState extends State<NewPassWordPage> {
                               );
                       }: null,
                       style: TextButton.styleFrom(
-                          backgroundColor: counter == 6?Color(0xFFFFD400):Color(0xFFEEEEEE),
+                          backgroundColor: counterpassword == 6?Color(0xFFFFD400):Color(0xFFEEEEEE),
                           minimumSize: Size(343, 48)),
                       child: Text(
                         'Xong',

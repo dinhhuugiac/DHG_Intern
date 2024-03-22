@@ -68,6 +68,8 @@ class _LoginPage2State extends State<FillPassWord> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => OtpFillPage(
+
+
                         phoneNumber: widget.phoneNumber,
                       ),
                     ),
@@ -130,6 +132,7 @@ class _LoginPage2State extends State<FillPassWord> {
                         minimumSize: Size(343, 48),
                       ),
                       child: Text(
+                        
                         'Đăng nhập ',
                         style: TextStyle(fontSize: 14, color: Colors.black),
                       ),

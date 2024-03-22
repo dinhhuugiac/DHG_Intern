@@ -16,8 +16,10 @@ class _OtpFillPageState extends State<OtpFillPage> {
   int countdown = 15;
   @override
   void initState() {
-    super.initState();
+
+    super.initState() ;
     startCountdown();
+
   }
 
   void startCountdown() {
