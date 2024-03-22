@@ -69,7 +69,7 @@ class _CustomIntlPhoneFieldState extends State<CustomIntlPhoneField> {
             ),
           ),
           Expanded(
-            flex: 4,
+            flex: 5,
             child: Container(
               decoration: BoxDecoration(
                 border: Border(
@@ -100,7 +100,6 @@ class _CustomIntlPhoneFieldState extends State<CustomIntlPhoneField> {
                     onTap: () {
                       setState(() {
                         textEditingController.clear(); 
-                        phoneNumber = ''; 
                       });
                     },
                     child: SvgPicture.asset('assets/icons/Vector.svg'),
