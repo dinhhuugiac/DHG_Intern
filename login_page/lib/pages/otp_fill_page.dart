@@ -28,7 +28,7 @@ class _OtpFillPageState extends State<OtpFillPage> {
         if (countdown > 0) {
           countdown--;
         } else {
-          timer.cancel();
+             timer.cancel();
         }
       });
     });
@@ -37,6 +37,7 @@ class _OtpFillPageState extends State<OtpFillPage> {
   @override
   void dispose() {
     timer.cancel();
+    
     super.dispose();
   }
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:login_page/component/custom_numberphone.dart';
 import 'package:login_page/pages/fill_password.dart';
 
 class LoginPageFirst extends StatefulWidget {
@@ -11,7 +11,13 @@ class LoginPageFirst extends StatefulWidget {
 }
 
 class _LoginPageFirstState extends State<LoginPageFirst> {
-  String phoneNumber = ''; 
+  String phoneNumber = '';
+
+  void updatePhoneNumber(String newPhoneNumber) {
+    setState(() {
+      phoneNumber = newPhoneNumber;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,24 +58,15 @@ class _LoginPageFirstState extends State<LoginPageFirst> {
                 SizedBox(height: 4),
                 Container(
                   height: 48,
-                  child: IntlPhoneField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
-                    ),
-                    disableLengthCheck: true,
-                    initialCountryCode: 'VN',
-                    onChanged: (phone) {
-                      setState(() {
-                        phoneNumber = phone.completeNumber;
-                      });
-                    },
+                  child: CustomIntlPhoneField(
+                    callPhoneNumber: updatePhoneNumber,
                   ),
                 ),
                 SizedBox(height: 24),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed:() {
+                    onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
