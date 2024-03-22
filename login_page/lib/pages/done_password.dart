@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:login_page/pages/login_page_seconde.dart';
+import 'package:login_page/pages/fill_password.dart';
+import 'package:login_page/pages/login_page_first.dart';
 
 class DonePassWord extends StatelessWidget {
   const DonePassWord({super.key});
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.only(top: 148,left: 16,right: 16),
@@ -37,7 +39,7 @@ class DonePassWord extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => LoginPageSeconde()),
+                                  builder: (context) => LoginPageFirst()),
                             );
                           },
                           style: TextButton.styleFrom(
