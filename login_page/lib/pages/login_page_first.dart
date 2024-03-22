@@ -11,7 +11,7 @@ class LoginPageFirst extends StatefulWidget {
 }
 
 class _LoginPageFirstState extends State<LoginPageFirst> {
-  String? _phoneNumber; 
+  String phoneNumber = ''; 
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,6 @@ class _LoginPageFirstState extends State<LoginPageFirst> {
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 104),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              
               children: [
                 Text(
                   'Tranh tài cùng Giaoluutennis!',
@@ -53,33 +52,32 @@ class _LoginPageFirstState extends State<LoginPageFirst> {
                 SizedBox(height: 4),
                 Container(
                   height: 48,
-                    child: IntlPhoneField(
+                  child: IntlPhoneField(
                     decoration: InputDecoration(
-                      
-                    border: OutlineInputBorder(borderRadius:BorderRadius.circular(12)),
-                    
-                  ),
-                  
-                  disableLengthCheck: true,
-                  initialCountryCode: 'VN',
-                  onChanged: (phone) {
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                    disableLengthCheck: true,
+                    initialCountryCode: 'VN',
+                    onChanged: (phone) {
                       setState(() {
-                        _phoneNumber = phone.completeNumber;
+                        phoneNumber = phone.completeNumber;
                       });
                     },
-                )),
+                  ),
+                ),
                 SizedBox(height: 24),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {
-                      
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginPageSeconde(
-                              phoneNumber: _phoneNumber!,
-                            )));
+                    onPressed:() {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => FillPassWord(
+                            phoneNumber: phoneNumber,
+                          ),
+                        ),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Color(0xFFFFD400),
@@ -127,75 +125,67 @@ class _LoginPageFirstState extends State<LoginPageFirst> {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 24,
-                ),
+                SizedBox(height: 24),
                 Container(
                   height: 48,
                   child: ElevatedButton(
-                      onPressed: () {},
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset('assets/icons/facebook.svg'),
-                          SizedBox(
-                            width: 8,
-                          ),
-                          Text(
-                            'Đăng nhập bằng Facebook',
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 14),
-                          )
-                        ],
-                      )),
+                    onPressed: () {},
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset('assets/icons/facebook.svg'),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text(
+                          'Đăng nhập bằng Facebook',
+                          style: TextStyle(color: Colors.black, fontSize: 14),
+                        )
+                      ],
+                    ),
+                  ),
                 ),
-                SizedBox(
-                  height: 12,
-                ),
+                SizedBox(height: 12),
                 Container(
                   height: 48,
                   child: ElevatedButton(
-                      onPressed: () {},
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset('assets/icons/google.svg'),
-                          SizedBox(
-                            width: 8,
-                          ),
-                          Text(
-                            'Đăng nhập bằng Facebook',
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 14),
-                          )
-                        ],
-                      )),
+                    onPressed: () {},
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset('assets/icons/google.svg'),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text(
+                          'Đăng nhập bằng Google',
+                          style: TextStyle(color: Colors.black, fontSize: 14),
+                        )
+                      ],
+                    ),
+                  ),
                 ),
-                SizedBox(
-                  height: 12,
-                ),
+                SizedBox(height: 12),
                 Container(
                   height: 48,
                   child: ElevatedButton(
-                      onPressed: () {},
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset('assets/icons/apple.svg'),
-                          SizedBox(
-                            width: 8,
-                          ),
-                          Text(
-                            'Đăng nhập bằng Apple',
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 14),
-                          )
-                        ],
-                      )),
+                    onPressed: () {},
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset('assets/icons/apple.svg'),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text(
+                          'Đăng nhập bằng Apple',
+                          style: TextStyle(color: Colors.black, fontSize: 14),
+                        )
+                      ],
+                    ),
+                  ),
                 ),
-                SizedBox(
-                  height: 24,
-                ),
+                SizedBox(height: 24),
                 RichText(
                   text: TextSpan(
                     children: [

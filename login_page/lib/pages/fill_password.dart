@@ -3,16 +3,16 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:login_page/pages/new_password_page.dart';
 import 'package:login_page/pages/otp_fill_page.dart';
 
-class LoginPageSeconde extends StatefulWidget {
+class FillPassWord extends StatefulWidget {
   final String phoneNumber;
 
-  const LoginPageSeconde({required this.phoneNumber});
+  const FillPassWord({required this.phoneNumber});
 
   @override
-  State<LoginPageSeconde> createState() => _LoginPage2State();
+  State<FillPassWord> createState() => _LoginPage2State();
 }
 
-class _LoginPage2State extends State<LoginPageSeconde> {
+class _LoginPage2State extends State<FillPassWord> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,7 +93,7 @@ class _LoginPage2State extends State<LoginPageSeconde> {
                         ),
                       ),
                       TextSpan(
-                        text: ' quy chế, điều khoản              ',
+                        text: ' quy chế, điều khoản \n',
                         style: TextStyle(
                           fontSize: 14,
                           color: Colors.blue,

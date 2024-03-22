@@ -12,22 +12,21 @@ class OtpFillPage extends StatefulWidget {
 }
 
 class _OtpFillPageState extends State<OtpFillPage> {
-  late Timer _timer;
-  int _countdown = 15;
-
+  late Timer timer;
+  int countdown = 15;
   @override
   void initState() {
     super.initState();
-    _startCountdown();
+    startCountdown();
   }
 
-  void _startCountdown() {
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+  void startCountdown() {
+    timer = Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
-        if (_countdown > 0) {
-          _countdown--;
+        if (countdown > 0) {
+          countdown--;
         } else {
-          _timer.cancel();
+          timer.cancel();
         }
       });
     });
@@ -35,7 +34,7 @@ class _OtpFillPageState extends State<OtpFillPage> {
 
   @override
   void dispose() {
-    _timer.cancel();
+    timer.cancel();
     super.dispose();
   }
 
@@ -85,7 +84,7 @@ class _OtpFillPageState extends State<OtpFillPage> {
             ),
             SizedBox(height: 24),
             Text(
-              'Gửi lại mã xác thực (00:$_countdown)',
+              'Gửi lại mã xác thực (00:$countdown)',
               style: TextStyle(fontSize: 16, color: Colors.blue),
             ),
           ],
