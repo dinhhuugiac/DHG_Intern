@@ -63,7 +63,7 @@ class _LoginPageFirstState extends State<LoginPageFirst> {
                   ),
                 ),
                 SizedBox(height: 24),
-                SizedBox(
+                Container(
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
@@ -80,7 +80,7 @@ class _LoginPageFirstState extends State<LoginPageFirst> {
                       primary: Color(0xFFFFD400),
                       minimumSize: Size(343, 48),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(22),
                       ),
                     ),
                     child: Text(
