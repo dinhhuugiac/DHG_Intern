@@ -4,8 +4,9 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 class OtpFillPage extends StatefulWidget {
   final String phoneNumber;
+  final String countryCode ;
 
-  const OtpFillPage({Key? key, required this.phoneNumber}) : super(key: key);
+  const OtpFillPage({Key? key, required this.phoneNumber, required this.countryCode  }) : super(key: key);
 
   @override
   State<OtpFillPage> createState() => _OtpFillPageState();
@@ -63,7 +64,7 @@ class _OtpFillPageState extends State<OtpFillPage> {
                     style: TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                   TextSpan(
-                    text: '${widget.phoneNumber}\n',
+                    text: '${widget.countryCode} ${widget.phoneNumber}\n',
                     style: TextStyle(fontSize: 14, color: Colors.black),
                   ),
                   TextSpan(

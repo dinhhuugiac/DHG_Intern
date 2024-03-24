@@ -5,8 +5,8 @@ import 'package:login_page/pages/otp_fill_page.dart';
 
 class FillPassWord extends StatefulWidget {
   final String phoneNumber;
-
-  const FillPassWord({required this.phoneNumber});
+  final String countryCode ;
+  const FillPassWord({required this.phoneNumber,required this.countryCode});
 
   @override
   State<FillPassWord> createState() => _LoginPage2State();
@@ -39,7 +39,7 @@ class _LoginPage2State extends State<FillPassWord> {
                 height: 10,
               ),
               Text(
-                '${widget.phoneNumber}',
+                '${widget.countryCode} ${widget.phoneNumber}',
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.black,
@@ -71,6 +71,7 @@ class _LoginPage2State extends State<FillPassWord> {
 
 
                         phoneNumber: widget.phoneNumber,
+                        countryCode : widget.countryCode,
                       ),
                     ),
                   );

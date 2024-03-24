@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomIntlPhoneField extends StatefulWidget {
-  final void Function(String) callPhoneNumber;
+  final void Function(String,String ) callPhoneNumber;
 
   const CustomIntlPhoneField({Key? key, required this.callPhoneNumber}) : super(key: key);
 
@@ -12,19 +12,19 @@ class CustomIntlPhoneField extends StatefulWidget {
 
 class _CustomIntlPhoneFieldState extends State<CustomIntlPhoneField> {
   String phoneNumber = '';
-  String selectedCountry = 'VN';
+  String selectedCountry = '+84';
   TextEditingController textEditingController = TextEditingController();
 
   List<Map<String, dynamic>> countryList = [
-    {'code': 'VN', 'name': '+84', 'flag': '🇻🇳'},
-    {'code': 'US', 'name': '+1', 'flag': '🇺🇸'},
-    {'code': 'CA', 'name': '+1', 'flag': '🇨🇦'},
-    {'code': 'AU', 'name': '+61', 'flag': '🇦🇺'},
-    {'code': 'DE', 'name': '+49', 'flag': '🇩🇪'}, 
-    {'code': 'JP', 'name': '+81', 'flag': '🇯🇵'}, 
-    {'code': 'KR', 'name': '+82', 'flag': '🇰🇷'}, 
-    {'code': 'CN', 'name': '+86', 'flag': '🇨🇳'},
-    {'code': 'IN', 'name': '+91', 'flag': '🇮🇳'}, 
+    {'code': '+84','flag': '🇻🇳'},
+    {'code': '+1', 'flag': '🇺🇸'},
+    {'code': '+12','flag': '🇨🇦'},
+    {'code': '+61','flag': '🇦🇺'},
+    {'code': '+49','flag': '🇩🇪'}, 
+    {'code': '+81','flag': '🇯🇵'}, 
+    {'code': '+82','flag': '🇰🇷'}, 
+    {'code': '+86','flag': '🇨🇳'},
+    {'code': '+91','flag': '🇮🇳'}, 
   ];
 
   @override
@@ -60,7 +60,7 @@ class _CustomIntlPhoneFieldState extends State<CustomIntlPhoneField> {
                           style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
                         ),
                         SizedBox(width: 8),
-                        Text(country['name']),
+                        Text(country['code']),
                       ],
                     ),
                   );
@@ -80,18 +80,19 @@ class _CustomIntlPhoneFieldState extends State<CustomIntlPhoneField> {
                 controller: textEditingController,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                  
-                  hintText: 'Phone Number',
-                  hintStyle: TextStyle(fontSize: 14),
+                  hintText: 'Number Phone',
+                  hintStyle: TextStyle(fontSize: 14,
+                  fontWeight: FontWeight.w400),
                   border: InputBorder.none,
-                  contentPadding: EdgeInsets.only(left: 12, bottom: 16, top: 16, right: 12),
+                   contentPadding: EdgeInsets.only(left: 12, bottom: 16, top: 16, right: 12),
                 ),
                 onChanged: (value) {
                   setState(() {
                     phoneNumber = value;
                     print(value);
                   });
-                  widget.callPhoneNumber(phoneNumber);
+                  widget.callPhoneNumber(phoneNumber,selectedCountry);
+                  
                 },
               ),
             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:login_page/component/custom_numberphone.dart';
+import 'package:login_page/models/model_numberPhonr.dart';
 import 'package:login_page/pages/fill_password.dart';
 
 class LoginPageFirst extends StatefulWidget {
@@ -11,14 +12,7 @@ class LoginPageFirst extends StatefulWidget {
 }
 
 class _LoginPageFirstState extends State<LoginPageFirst> {
-  String phoneNumber = '';
-
-  void updatePhoneNumber(String newPhoneNumber) {
-    setState(() {
-      phoneNumber = newPhoneNumber;
-    });
-  }
-
+ ModelData modelData = ModelData('', '');
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -59,7 +53,13 @@ class _LoginPageFirstState extends State<LoginPageFirst> {
                 Container(
                   height: 48,
                   child: CustomIntlPhoneField(
-                    callPhoneNumber: updatePhoneNumber,
+                    callPhoneNumber: (String newPhoneNumber, String newCountryCode){
+                      setState(() {
+                        modelData.phoneNumber = newPhoneNumber;
+                        modelData.countryCode = newCountryCode;
+                        print(modelData);
+                      });
+                    },
                   ),
                 ),
                 SizedBox(height: 24),
@@ -71,7 +71,8 @@ class _LoginPageFirstState extends State<LoginPageFirst> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => FillPassWord(
-                            phoneNumber: phoneNumber,
+                            phoneNumber: modelData.phoneNumber,
+                            countryCode: modelData.countryCode,
                           ),
                         ),
                       );
